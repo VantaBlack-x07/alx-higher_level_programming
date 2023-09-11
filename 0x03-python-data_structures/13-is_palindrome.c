@@ -36,8 +36,8 @@ listint_t *reversedLinkedList(listint_t **head)
 int is_palindrome(listint_t **head)
 {
 	listint_t *reversed = NULL;
-	reversed = reversedLinkedList(head);
 
+	reversed = reversedLinkedList(head);
 	listint_t *temp = *head;
 	listint_t *temp_reversed = reversed;
 
