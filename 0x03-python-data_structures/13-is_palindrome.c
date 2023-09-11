@@ -1,17 +1,17 @@
 #include "lists.h"
 
 /**
- * reversedLinkedList - checks if a singly linked list is a palindrome.
+ * reversedLinkedList - Reverses a singly linked list.
  *
- * @head: The head of the list
+ * @head: The head of the list.
  *
  * Return: The reversed linked list.
  */
 
-listint_t reversedLinkedList(listint_t *head)
+listint_t *reversedLinkedList(listint_t **head)
 {
 	listint_t *prev = NULL;
-	listint_t *current = head;
+	listint_t *current = *head;
 	listint_t *next = NULL;
 
 	while (current != NULL)
@@ -21,12 +21,12 @@ listint_t reversedLinkedList(listint_t *head)
 		prev = current;
 		current = next;
 	}
-
+	*head = prev;
 	return (prev);
 }
 
 /**
- * is_palindrome - checks if a singly linked list is a palindrome.
+ * is_palindrome - Checks if a singly linked list is a palindrome.
  *
  * @head: The head of the list.
  *
@@ -35,16 +35,19 @@ listint_t reversedLinkedList(listint_t *head)
 
 int is_palindrome(listint_t **head)
 {
-	listint_t *reversed = reversedLinkedList(head);
+	listint_t *reversed = NULL;
+	reversed = reversedLinkedList(head);
 
-	while (head != NULL && reversed != NULL)
+	listint_t *temp = *head;
+	listint_t *temp_reversed = reversed;
+
+	while (temp != NULL && temp_reversed != NULL)
 	{
-		if (head->n != reversed->n)
-			return (false);
-
-		head = head->next;
-		reversed = reversed->next;
+		if (temp->n != temp_reversed->n)
+			return (0);
+		temp = temp->next;
+		temp_reversed = temp_reversed->next;
 	}
 
-	return (head == NULL && reversed == NULL)
+	return (temp == NULL && temp_reversed == NULL);
 }
