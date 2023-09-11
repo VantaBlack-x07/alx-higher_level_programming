@@ -7,7 +7,6 @@
  *
  * Return: The reversed linked list.
  */
-
 listint_t *reversedLinkedList(listint_t **head)
 {
 	listint_t *prev = NULL;
@@ -32,7 +31,6 @@ listint_t *reversedLinkedList(listint_t **head)
  *
  * Return: 0 if it is not a palindrome, 1 if it is a palindrome.
  */
-
 int is_palindrome(listint_t **head)
 {
 	listint_t *reversed = NULL;
