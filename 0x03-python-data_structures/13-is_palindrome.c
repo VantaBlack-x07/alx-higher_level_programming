@@ -9,9 +9,11 @@
  */
 listint_t *reversedLinkedList(listint_t **head)
 {
-	listint_t *prev = NULL;
-	listint_t *current = *head;
-	listint_t *next = NULL;
+	listint_t *prev, *current, next;
+
+	prev = NULL;
+	current = *head;
+	next = NULL;
 
 	while (current != NULL)
 	{
@@ -21,7 +23,7 @@ listint_t *reversedLinkedList(listint_t **head)
 		current = next;
 	}
 	*head = prev;
-	return prev;
+	return (prev);
 }
 
 /**
@@ -33,20 +35,21 @@ listint_t *reversedLinkedList(listint_t **head)
  */
 int is_palindrome(listint_t **head)
 {
+	listint_t *reversed, *tmp, *temp_reversed;
+
 	if (*head == NULL) {
 		return 0;
 	}
 
-	listint_t *reversed = NULL;
+	reversed = NULL;
 	reversed = reversedLinkedList(head);
-
-	listint_t *temp = *head;
-	listint_t *temp_reversed = reversed;
+	temp = *head;
+	temp_reversed = reversed;
 
 	while (temp != NULL && temp_reversed != NULL)
 	{
 		if (temp->n != temp_reversed->n)
-			return 0;
+			return (0);
 		temp = temp->next;
 		temp_reversed = temp_reversed->next;
 	}
