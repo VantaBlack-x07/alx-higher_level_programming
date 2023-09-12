@@ -7,6 +7,7 @@
  *
  * Return: The reversed linked list.
  */
+
 listint_t *reversedLinkedList(listint_t **head)
 {
 	listint_t *prev = NULL;
@@ -31,26 +32,35 @@ listint_t *reversedLinkedList(listint_t **head)
  *
  * Return: 0 if it is not a palindrome, 1 if it is a palindrome.
  */
+
 int is_palindrome(listint_t **head)
 {
-	listint_t *reversed, *temp, *temp_reversed;
-       
-	reversed = reversedLinkedList(head);
-	temp = *head;
-	temp_reversed = reversed;
+	listint_t *slow = *head;
+	listint_t *fast = *head;
+	listint_t *second_half = NULL;
 
-	if ((*head)->next == NULL)
+	while (fast != NULL && fast->next != NULL)
 	{
-		return (0);
+		fast = fast->next->next;
+		slow = slow->next;
 	}
 
-	while (temp != NULL && temp_reversed != NULL)
+	if (fast != NULL)
 	{
-		if (temp->n != temp_reversed->n)
+		slow = slow->next;
+	}
+
+	second_half = reversedLinkedList(&slow);
+
+	while (second_half != NULL)
+	{
+		if ((*head)->n != second_half->n)
+		{
 			return (0);
-		temp = temp->next;
-		temp_reversed = temp_reversed->next;
+		}
+		*head = (*head)->next;
+		second_half = second_half->next;
 	}
 
-	return (temp == NULL && temp_reversed == NULL);
+	return (1);
 }
