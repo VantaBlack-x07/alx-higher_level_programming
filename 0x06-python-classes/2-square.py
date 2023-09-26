@@ -1,7 +1,14 @@
 #!/usr/bin/python3
+"""square class"""
+
 
 class Square:
+    """square"""
     def __init__(self, size=0):
+        """init
+        Args:
+            size: size of the square
+        """
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
         elif size < 0:
