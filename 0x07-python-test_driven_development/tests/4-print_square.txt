@@ -1,0 +1,35 @@
+The 4-print_square test module.
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+
+Using "print_square"
+++++++++++++++++++++++++++++++++++++
+
+Import function from module:
+
+	>>> print_square = __import__('4-print_square').print_square
+
+Test size > 0 argument:
+	>>> print_square(3)
+	###
+	###
+	###
+
+Test size < 0 argument:
+	>>> print_square(-1)
+	Traceback (most recent call last):
+	ValueError: size must be >= 0
+
+Test size is not int argument:
+	>>> print_square('M')
+	Traceback (most recent call last):
+	TypeError: size must be an integer
+
+Test size < 0 and is float argument:
+	>>> print_square(-1.4)
+	Traceback (most recent call last):
+	TypeError: size must be an integer
+
+Test messing arg argument:
+	>>> print_square()
+	Traceback (most recent call last):
+	TypeError: print_square() missing 1 required positional argument: 'size'
