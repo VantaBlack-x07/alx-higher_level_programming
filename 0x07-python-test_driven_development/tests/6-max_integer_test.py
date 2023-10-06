@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """unittest max_intger"""
 
+
 import unittest
 max_intger = __import__('6-max_integer').max_integer
 
@@ -15,16 +16,16 @@ class TestMaxInteger(unittest.TestCase):
 
     def test_unsorted_list(self):
         """unsorted test"""
-        li = [2,6,1,8,3,5]
+        li = [2, 6, 1, 8, 3, 5]
         x = max_intger(li)
         self.assertEqual(x, 8)
-        
+
     def test_double_max(self):
         """double test"""
-        li = [2,6,1,8,8,5]
+        li = [2, 6, 1, 8, 8, 5]
         x = max_intger(li)
         self.assertEqual(x, 8)
-        
+
     def test_is_string(self):
         """unsorted test"""
         li = ["AAA", "BBB", "ZZZ"]
@@ -48,6 +49,7 @@ class TestMaxInteger(unittest.TestCase):
         li = [9, 3, 2, 1, 5]
         x = max_intger(li)
         self.assertEqual(x, 9)
+
 
 if __name__ == '__main__':
     unittest.main()
